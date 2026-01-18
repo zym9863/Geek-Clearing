@@ -1,7 +1,83 @@
-# Tauri + SvelteKit + TypeScript
+# ⚡ 极客清空 (Geek Clearing)
 
-This template should help get you started developing with Tauri, SvelteKit and TypeScript in Vite.
+一款现代化的 Windows 桌面清理工具，提供智能缓存清理和隐私痕迹粉碎功能。
 
-## Recommended IDE Setup
+![Tauri](https://img.shields.io/badge/Tauri-2.0-blue?logo=tauri)
+![SvelteKit](https://img.shields.io/badge/SvelteKit-2.0-orange?logo=svelte)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)
+![Rust](https://img.shields.io/badge/Rust-1.70+-orange?logo=rust)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+## ✨ 功能特性
+
+### 💾 智能缓存清理
+- **系统临时文件** - `%TEMP%`、`C:\Windows\Temp`
+- **Windows 更新缓存** - 释放系统更新占用空间
+- **浏览器缓存** - Chrome、Edge 浏览器缓存
+- **缩略图缓存** - Windows Explorer 缩略图
+- **一键扫描清理** - 快速释放存储空间
+
+### 🔒 隐私痕迹粉碎
+- **DoD 5220.22-M** - 军事级安全删除算法（3次覆写）
+- **浏览器历史** - Chrome、Edge 浏览记录
+- **最近文档** - 最近访问的文件记录
+- **搜索历史** - Windows 搜索记录
+- **剪贴板历史** - 剪贴板缓存数据
+
+## 🚀 快速开始
+
+### 环境要求
+- Node.js 18+
+- pnpm
+- Rust 1.70+
+
+### 安装依赖
+
+```bash
+pnpm install
+```
+
+### 开发模式
+
+```bash
+pnpm tauri dev
+```
+
+### 构建发布
+
+```bash
+pnpm tauri build
+```
+
+## 🏗️ 项目结构
+
+```
+Geek Clearing/
+├── src/                      # SvelteKit 前端
+│   ├── lib/
+│   │   └── api.ts           # Tauri API 封装
+│   └── routes/
+│       └── +page.svelte     # 主界面
+├── src-tauri/               # Rust 后端
+│   └── src/
+│       ├── lib.rs          # 主入口 & 命令注册
+│       ├── scanner.rs      # 缓存扫描模块
+│       ├── shredder.rs     # 安全删除模块 (DoD 5220.22-M)
+│       └── privacy.rs      # 隐私清理模块
+└── package.json
+```
+
+## 🔐 安全删除算法
+
+采用 **DoD 5220.22-M** 标准实现安全删除：
+
+| Pass | 操作 | 描述 |
+|------|------|------|
+| 1 | 覆写 `0x00` | 全零覆盖 |
+| 2 | 覆写 `0xFF` | 全一覆盖 |
+| 3 | 随机数据 | 随机字节覆盖 |
+
+经过三次覆写后删除文件，确保数据无法被恢复。
+
+## 📄 许可证
+
+MIT License
