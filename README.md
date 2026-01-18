@@ -1,3 +1,5 @@
+[English](README-EN.md)
+
 # ⚡ 极客清空 (Geek Clearing)
 
 一款现代化的 Windows 桌面清理工具，提供智能缓存清理和隐私痕迹粉碎功能。
